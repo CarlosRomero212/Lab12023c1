@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de Mí</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        
+        
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url(2202764.jpg);
+        }
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            background-color: rgba(70, 70, 70, 0.288);
+        }
+        .grid-item {
+            width: 300px;
+            height: 200px;
+            background-color: rgba(255, 255, 255, 0.733);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(27, 126, 255, 0.377);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .grid-item:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1>Acerca de Mí</h1>
+    <div class="grid-container">
+        <div class="grid-item" id="animal" onclick="cambiarTexto(this)">
+            <p>Mi animal favorito: <span id="animal-text">Gato</span></p>
+        </div>
+        <div class="grid-item" id="comida" onmouseover="cambiarColor(this)" onmouseout="revertirColor(this)">
+            <p>Comida favorita: Sushi</p>
+        </div>
+        <div class="grid-item" id="pelicula" ondblclick="mostrarAlerta()">
+            <p>Película favorita: Interestelar</p>
+        </div>
+        <div class="grid-item" id="cancion" onmouseenter="agrandarTexto(this)" onmouseleave="reducirTexto(this)">
+            <p>Canción favorita: Bohemian Rhapsody</p>
+        </div>
+        <div class="grid-item" id="persona" oncontextmenu="cambiarFondo(event, this)">
+            <p>Persona que admiro: Nikola Tesla</p>
+        </div>
+        <div class="grid-item" id="pais" onfocus="cambiarBorde(this)" tabindex="0">
+            <p>País que quiero visitar: Japón</p>
+        </div>
+    </div>
+    <script>
+        function cambiarTexto(elemento) {
+            let texto = document.getElementById("animal-text");
+            texto.textContent = texto.textContent === "Gato" ? "Lobo" : "Gato";
+        }
+
+        function cambiarColor(elemento) {
+            elemento.style.backgroundColor = "#82bbf3";
+        }
+
+        function revertirColor(elemento) {
+            elemento.style.backgroundColor = "black";
+        }
+
+        function mostrarAlerta() {
+            alert("¡Interestelar es una gran película!");
+        }
+
+        function agrandarTexto(elemento) {
+            elemento.style.fontSize = "1.5em";
+        }
+
+        function reducirTexto(elemento) {
+            elemento.style.fontSize = "1em";
+        }
+
+        function cambiarFondo(event, elemento) {
+            event.preventDefault();
+            elemento.style.backgroundColor = "url(2202764.jpg)";
+        }
+
+        function cambiarBorde(elemento) {
+            elemento.style.border = "10px solid blue";
+        }
+    </script>
+</body>
+</html>
